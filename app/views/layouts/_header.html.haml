@@ -1,0 +1,22 @@
+%header.navbar.navbar-fixed-top.navbar-default
+  .navbar-inner
+    .container
+      = link_to "iorder", root_path, id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li= link_to "Home", root_path
+          %li= link_to "The team", about_path
+          %li= link_to "Contact", contact_path
+          - if signed_in?
+            %li#fat-menu.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Account
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to "Profile", current_store
+                %li= link_to "Settings", edit_store_registration_path(current_store)
+                %li.divider
+                %li
+                  = link_to "Sign out", destroy_store_session_path, method: "delete"
+          - else
+            %li= link_to "Sign in", new_store_session_path

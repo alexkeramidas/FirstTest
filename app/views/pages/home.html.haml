@@ -1,0 +1,11 @@
+- if signed_in?
+  .row
+    %aside.span4
+      %section= render 'shared/store_info'
+      %section= render 'shared/product_form'
+- else
+  .center.hero-unit
+    %h1{:style => "color:#DB7093"} Welcome to iOrder
+    %h2 You are coffee store owner?
+    = link_to "Sign up now!", new_store_registration_path, class: "btn btn-large btn-default"
+  = link_to image_tag("iorder.jpg", alt: "iOrder", img: "circle"), 'https://www.facebook.com/pages/iOrder/668431556553858'
